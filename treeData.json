@@ -337,12 +337,108 @@
 					"color": "Oranges"
 				},
 				{
-					"name": "VPC Flow Logs",
-					"color": "Oranges"
+					"name": "Trusted Advisor",
+					"color": "Oranges",
+					"children": [
+						{
+							"name": "Weekly Reports",
+							"color": "Oranges"
+						}
+					]
 				},
 				{
-					"name": "Trusted Advisor",
-					"color": "Oranges"
+					"name": "Service Specific",
+					"color": "Oranges",
+					"children": [
+						{
+							"name": "Virtual Private Cloud (VPC)",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "VPC Flow Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Cloudfront",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Access Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Simple Storage Service (S3)",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Access Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Application Load Balancer (ALB)",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Access Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Elastic Load Balancer (ELB)",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Access Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Relational Database Service (RDS)",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Logs",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "CloudWatch",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "CloudWatch Logs Agent",
+									"color": "Oranges"
+								}
+							]
+						},
+						{
+							"name": "Amazon Inspector",
+							"color": "Oranges",
+							"children": [
+								{
+									"name": "Assessment Targets",
+									"color": "Oranges"
+								},
+								{
+									"name": "Assessment Reports",
+									"color": "Oranges"
+								},
+								{
+									"name": "Rules",
+									"color": "Oranges"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
