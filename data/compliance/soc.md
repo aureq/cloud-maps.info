@@ -1,0 +1,1 @@
+AWS Service Organization Control (SOC) Reports are independent third-party examination reports that demonstrate how AWS achieves key compliance controls and objectives. The purpose of these reports is to help you and your auditors understand the AWS controls established to support operations and compliance. [More Information](https://aws.amazon.com/compliance/soc-faqs/)

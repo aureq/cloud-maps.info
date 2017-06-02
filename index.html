@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>AWS Security Primer</title>
+<style>
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+html.lt-ie9, html.lt-ie9 body {
+    width: auto;
+    height: 100px;
+}
+
+.unsupported-browser {
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 0 5px 45px;
+    margin: 8px 8px 8px 100px;
+    background: url(ie-notice.png) no-repeat center left;
+    display: none;
+}
+html.lt-ie9 .unsupported-browser {
+    display: block;
+}
+
+html.lt-ie9 #graph-container {
+    display: none;
+}
+
+#split-container {
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+#graph-container {
+    width: 100%;
+    overflow-y: hidden;
+}
+#graph {
+    width: 100%;
+    overflow-y: hidden;
+}
+
+#docs-container {
+    width: 100%;
+    position: relative;
+    border-top: 3px solid #ccc;
+    display: none;
+    overflow-y: scroll;
+}
+#docs-close {
+    display: block;
+    position: fixed;
+    font-size: 1.4em;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    right: 8px;
+    background: white;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+#docs-close:hover {
+    background: #ccc;
+}
+#docs-scroll {
+    overflow-y: scroll;
+}
+#docs {
+    padding: 8px;
+}
+.docs h3 {
+    font-size: 18px;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+p {
+    margin: 0 0 10px;
+}
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+a {
+    background: transparent;
+}
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+
+.docs h2 {
+    font-size: 24px; /* h3 */
+    margin-top: 0;
+}
+.docs h3 {
+    font-size: 18px; /* h4 */
+}
+.docs h2 em, .docs h3 em {
+    font-size: 14px;
+    color: #999;
+    padding-left: 4px;
+    font-style: normal;
+}
+.docs pre {
+    margin: 8px;
+    padding: 4px;
+}
+.docs .select-object.missing {
+    color: #c7254e;
+}
+
+#crumbs {
+    top: -90px;
+    float: right;
+    right: 100%;
+    text-align: right;
+    width: 100%;
+}
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font: 14px Sans-Serif;
+  margin: 0 0 0 0;
+}
+.breadcrumb ul {
+  float: right;
+  padding-left: 0;
+}
+.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+  padding: 1px 10px 2px 14px;
+  background: grey; /* fallback color */
+  background: hsla(0, 0%, 80%, 1);
+  position: relative;
+  float: right;
+  right: 20px;
+}
+
+.breadcrumb li a::after {
+  content: " ";
+  /* display: block;  */
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 12px solid transparent;
+  border-left: 10px solid hsla(0, 0%, 80%, 1);
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  left: 100%;
+  z-index: 2;
+}
+
+.breadcrumb li a::before {
+  content: " ";
+  /* display: block;  */
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: 2px;
+  left: 100%;
+  z-index: 1;
+}
+
+.breadcrumb li a:hover {
+  background: hsla(0, 0%, 50%, 1);
+}
+
+.breadcrumb li a:hover:after {
+  border-left-color: hsla(0, 0%, 50%, 1) !important;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+  transition: opacity 250ms;
+  -webkit-transition: opacity 250ms;
+  -moz-transition: opacity 250ms;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+
+  transition: opacity 250ms;
+  -webkit-transition: opacity 250ms;
+  -moz-transition: opacity 250ms;
+}
+
+.link.inactive,
+.node.inactive circle,
+.node.inactive text {
+    opacity: .2;
+}
+
+.node.inactive.selected circle,
+.node.inactive.selected text {
+    opacity: .6;
+}
+
+
+</style>
+</head>
+<body>
+  <!--[if lt IE 9]>
+    <div class="unsupported-browser">
+      This website does not fully support your browser.  Please get a
+      better browser (Firefox or <a href="/chrome/">Chrome</a>, or if you
+      must use Internet Explorer, make it version 9 or greater).
+    </div>
+  <![endif]-->
+  <div id="split-container">
+    <!-- FIXME: Place in a floatting DIV -->
+    <button onclick="expandAll()">Expand All</button>
+    <button onclick="collapseAll()">Collapse All</button>
+    <div id="graph-container" class="svg-container">
+      <div id="graph"></div>
+    </div>
+    <div id="docs-container">
+      <a id="docs-close" href="#">&times;</a>
+      <div id="docs" class="docs"></div>
+    </div>
+  </div>
+
+<!-- load the d3.js library -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.0/showdown.min.js"></script>
+<script src="colorbrewer.js"></script>
+<script>
+// Set the dimensions and margins of the diagram
+var showingDocs       = false,
+    docsClosePadding  = 8,
+    desiredDocsHeight = 220;
+
+var margin = {top: 20, right: 90, bottom: 30, left: 90},
+    width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - margin.left - margin.right,
+    height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - desiredDocsHeight - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg = d3.select("#graph").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    // .attr("viewBox", "0 0 100% 100%")
+    .classed("svg-content-responsive", true)
+    .append("g")
+    .attr("transform", "translate("
+          + margin.left + "," + margin.top + ")");
+
+var i = 0,
+    duration = 750,
+    root,
+    graph = {},
+    selected = {},
+    highlighted = null;
+
+// declares a tree layout and assigns the size
+var treemap = d3.tree().size([height, width]);
+
+$(function() {
+  $('#docs-close').on('click', function() {
+      toggleDisplayDoc(false);
+      return false;
+  });
+});
+
+// Assigns parent, children, height, depth
+d3.json("treeData.json", function(error, treeData) {
+  root = d3.hierarchy(treeData, function(d) { return d.children; });
+  root.x0 = height / 2;
+  root.y0 = 0;
+
+  // Collapse after the second level
+  root.children.forEach(collapse);
+  update(root);
+});
+
+function expand(d){
+  var children = (d.children)?d.children:d._children;
+  if (d._children) {
+    d.children = d._children;
+    d._children = null;
+  }
+  if(children)
+    children.forEach(expand);
+  }
+
+function expandAll(){
+  expand(root);
+  update(root);
+}
+
+function collapseAll(){
+  root.children.forEach(collapse);
+  collapse(root);
+  update(root);
+}
+
+// Collapse the node and all it's children
+function collapse(d) {
+  if(d.children && d.depth > 0) {
+    d._children = d.children
+    d._children.forEach(collapse)
+    d.children = null
+  }
+}
+
+function toggleDisplayDoc(showDocs) {
+  var docsHeight  = 0,
+      graphHeight = 0,
+      $docs       = $('#docs-container'),
+      $graph      = $('#graph-container'),
+      $close      = $('#docs-close');
+
+  if (typeof showDocs == 'boolean') {
+    showingDocs = showDocs;
+    $docs[showDocs ? 'show' : 'hide']();
+  }
+
+  if (showingDocs) {
+    docsHeight = desiredDocsHeight;
+    $docs.css('height', docsHeight + 'px');
+  }
+
+  graphHeight = window.innerHeight - docsHeight;
+  $graph.css('height', graphHeight + 'px');
+
+  $close.css({
+    top   : graphHeight + docsClosePadding + 'px',
+    right : window.innerWidth - $docs[0].clientWidth + docsClosePadding + 'px'
+  });
+
+}
+
+function getColor(colorCat, depth) {
+  depth = (depth > 8 ? 8 : depth) // ensure we can return a color
+  switch(colorCat) {
+    case 'YlGn':
+      return colorbrewer.YlGn[9][depth];
+      break;
+    case 'YlGnBu':
+      return colorbrewer.YlGnBu[9][depth];
+      break;
+    case 'GnBu':
+      return colorbrewer.GnBu[9][depth];
+      break;
+    case 'BuGn':
+      return colorbrewer.BuGn[9][depth];
+      break;
+    case 'PuBuGn':
+      return colorbrewer.PuBuGn[9][depth];
+      break;
+    case 'PuBu':
+      return colorbrewer.PuBu[9][depth];
+      break;
+    case 'BuPu':
+      return colorbrewer.BuPu[9][depth];
+      break;
+    case 'RdPu':
+      return colorbrewer.RdPu[9][depth];
+      break;
+    case 'PuRd':
+      return colorbrewer.PuRd[9][depth];
+      break;
+    case 'OrRd':
+      return colorbrewer.OrRd[9][depth];
+      break;
+    case 'YlOrRd':
+      return colorbrewer.YlOrRd[9][depth];
+      break;
+    case 'YlOrBr':
+      return colorbrewer.YlOrBr[9][depth];
+      break;
+    case 'Purples':
+      return colorbrewer.Purples[9][depth];
+      break;
+    case 'Blues':
+      return colorbrewer.Blues[9][depth];
+      break;
+    case 'Greens':
+      return colorbrewer.Greens[9][depth];
+      break;
+    case 'Oranges':
+      return colorbrewer.Oranges[9][depth];
+      break;
+    case 'Reds':
+      return colorbrewer.Reds[9][depth];
+      break;
+    case 'Greys':
+      return colorbrewer.Greys[9][depth];
+      break;
+    case 'PuOr':
+      return colorbrewer.PuOr[9][depth];
+      break;
+    case 'BrBG':
+      return colorbrewer.BrBG[9][depth];
+      break;
+    case 'PRGn':
+      return colorbrewer.PRGn[9][depth];
+      break;
+    case 'PiYG':
+      return colorbrewer.PiYG[9][depth];
+      break;
+    case 'RdBu':
+      return colorbrewer.RdBu[9][depth];
+      break;
+    case 'RdGy':
+      return colorbrewer.RdGy[9][depth];
+      break;
+    case 'RdYlBu':
+      return colorbrewer.RdYlBu[9][depth];
+      break;
+    case 'Spectral':
+      return colorbrewer.Spectral[9][depth];
+      break;
+    case 'RdYlGn':
+      return colorbrewer.RdYlGn[9][depth];
+      break;
+    case 'Accent':
+      return colorbrewer.Accent[9][depth];
+      break;
+    case 'Dark2':
+      return colorbrewer.Dark2[9][depth];
+      break;
+    case 'Paired':
+      return colorbrewer.Paired[9][depth];
+      break;
+    case 'Pastel1':
+      return colorbrewer.Pastel1[9][depth];
+      break;
+    case 'Pastel2':
+      return colorbrewer.Pastel2[9][depth];
+      break;
+    case 'Set1':
+      return colorbrewer.Set1[9][depth];
+      break;
+    case 'Set2':
+      return colorbrewer.Set2[9][depth];
+      break;
+    case 'Set3':
+      return colorbrewer.Set3[9][depth];
+      break;
+    case 'AWS':
+      return colorbrewer.AWS[9][depth];
+      break;
+    default:
+      return colorbrewer.Greys[9][depth];
+  }
+}
+
+function update(source) {
+
+  // Assigns the x and y position for the nodes
+  var treeData = treemap(root);
+
+  // Compute the new tree layout.
+  var nodes = treeData.descendants(),
+      links = treeData.descendants().slice(1);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d){ d.y = d.depth * 180});
+
+  //Container for the gradients
+  var defs = svg.append("defs");
+
+  //Filter for the outside glow
+  var filter = defs.append("filter")
+    .attr("id","glow");
+
+  filter.append("feGaussianBlur")
+    .attr("class", "blur")
+    .attr("stdDeviation","2.5")
+    .attr("result","coloredBlur");
+
+  var feMerge = filter.append("feMerge");
+  feMerge.append("feMergeNode")
+    .attr("in","coloredBlur");
+  feMerge.append("feMergeNode")
+    .attr("in","SourceGraphic");
+
+  // ****************** Nodes section ***************************
+
+  // Update the nodes...
+  var node = svg.selectAll('g.node')
+      .data(nodes, function(d) {return d.id || (d.id = ++i); });
+
+  // Enter any new modes at the parent's previous position.
+  var nodeEnter = node.enter().append('g')
+      .attr('class', 'node')
+      .attr("transform", function(d) {
+        return "translate(" + source.y0 + "," + source.x0 + ")";
+    })
+    .on('click', function(d){
+      if (graph.mouseoutTimeout) {
+        clearTimeout(graph.mouseoutTimeout);
+        graph.mouseoutTimeout = null;
+      }
+      click(d);
+    })
+    .on('mouseover', function(d) {
+      if (!selected.obj) {
+        if (graph.mouseoutTimeout) {
+          clearTimeout(graph.mouseoutTimeout);
+          graph.mouseoutTimeout = null;
+        }
+        graph.mouseoutTimeout = setTimeout(function() {
+          highlightObject(d);
+        }, 500);
+      }
+    })
+    .on('mouseout', function(d) {
+      if (!selected.obj) {
+        if (graph.mouseoutTimeout) {
+          clearTimeout(graph.mouseoutTimeout);
+          graph.mouseoutTimeout = null;
+        }
+        graph.mouseoutTimeout = setTimeout(function() {
+          highlightObject(null);
+        }, 250);
+      }
+    });
+
+  // Add Circle for the nodes
+  nodeEnter.append('circle')
+      .attr('class', 'node')
+      .attr('r', 1e-6)
+      .style("stroke", function(d) {
+          return d._children ? "steelblue" : getColor(d.data.color, d.depth);
+      })
+      .style("fill", function(d) {
+          return d._children ? "white" : getColor(d.data.color, d.depth);
+      });
+
+  // Add labels for the nodes
+  nodeEnter.append('text')
+      .attr("dy", ".35em")
+      .attr("x", function(d) {
+          return d.children || d._children ? -13 : 13;
+      })
+      .attr("text-anchor", function(d) {
+          return d.children || d._children ? "end" : "start";
+      })
+      .text(function(d) { return d.data.name; });
+
+  // UPDATE
+  var nodeUpdate = graph.node = nodeEnter.merge(node);
+
+  // Transition to the proper position for the node
+  nodeUpdate.transition()
+    .duration(duration)
+    .attr("transform", function(d) {
+        return "translate(" + d.y + "," + d.x + ")";
+     });
+
+  // Update the node attributes and style
+  nodeUpdate.select('circle.node')
+    .attr('r', 10)
+    .style("stroke", function(d) {
+        return d._children ? "steelblue" : getColor(d.data.color, d.depth);
+    })
+    .style("fill", function(d) {
+        return d._children ? "white" : getColor(d.data.color, d.depth);
+    })
+    .attr('cursor', 'pointer');
+
+
+  // Remove any exiting nodes
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) {
+          return "translate(" + source.y + "," + source.x + ")";
+      })
+      .remove();
+
+  // On exit reduce the node circles size to 0
+  nodeExit.select('circle')
+    .attr('r', 1e-6);
+
+  // On exit reduce the opacity of text labels
+  nodeExit.select('text')
+    .style('fill-opacity', 1e-6);
+
+  // ****************** links section ***************************
+
+  // Update the links...
+  var link = svg.selectAll('path.link')
+      .data(links, function(d) { return d.id; });
+
+  // Enter any new links at the parent's previous position.
+  var linkEnter = link.enter().insert('path', "g")
+      .attr("class", "link")
+      .attr('d', function(d){
+        var o = {x: source.x0, y: source.y0}
+        return diagonal(o, o)
+      })
+      .style("stroke", function(d) {
+        return getColor(d.data.color, d.depth);
+      })
+      .on('mouseover', function(d) {
+        if (!selected.obj) {
+          if (graph.mouseoutTimeout) {
+            clearTimeout(graph.mouseoutTimeout);
+            graph.mouseoutTimeout = null;
+          }
+          graph.mouseoutTimeout = setTimeout(function() {
+            highlightObject(d);
+          }, 500);
+        }
+      })
+      .on('mouseout', function(d) {
+        if (!selected.obj) {
+          if (graph.mouseoutTimeout) {
+            clearTimeout(graph.mouseoutTimeout);
+            graph.mouseoutTimeout = null;
+          }
+          graph.mouseoutTimeout = setTimeout(function() {
+            highlightObject(null);
+          }, 500);
+        }
+      });
+
+
+  // UPDATE
+  var linkUpdate = graph.line = linkEnter.merge(link);
+
+  // Transition back to the parent element position
+  linkUpdate.transition()
+      .duration(duration)
+      .attr('d', function(d){ return diagonal(d, d.parent) });
+
+  // Remove any exiting links
+  var linkExit = link.exit().transition()
+      .duration(duration)
+      .attr('d', function(d) {
+        var o = {x: source.x, y: source.y}
+        return diagonal(o, o)
+      })
+      .remove();
+
+  // Store the old positions for transition.
+  nodes.forEach(function(d){
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+  // Creates a curved (diagonal) path from parent to the child nodes
+  function diagonal(s, d) {
+
+    path = `M ${s.y} ${s.x}
+            C ${(s.y + d.y) / 2} ${s.x},
+              ${(s.y + d.y) / 2} ${d.x},
+              ${d.y} ${d.x}`
+
+    return path
+  }
+
+  // Toggle children on click
+  function click(d) {
+    if (d.depth > 0) {
+      if (d.children) {
+          d._children = d.children;
+          d.children = null;
+      } else {
+          d.children = d._children;
+          d._children = null;
+      }
+      update(d);
+    }
+    highlightObject(d);
+    toggleDisplayDoc(true);
+
+    /* Markdown to HTML */
+    var html = "<div id=\"crumbs\"><ul class=\"breadcrumb\">";
+    d.ancestors().forEach(function(currentValue, index, array) {
+      if (index == 0) return;
+      html += "<li><a href=\"#\">"+currentValue.data.name+"</a></li>";
+
+    });
+    html += "</ul></div><div><h2>"+d.data.name+"</h2></div>";
+
+    if ( ! d.data.docs && ! d.data.docurl) {
+      html += "<div class=\"alert alert-warning\">No documentation for this object</div>";
+      $('#docs').html(html);
+      $('#docs-container').scrollTop(0);
+
+    } else if (d.data.docs) {
+      html += "<h3>Documentation<sup><a href=\"" +d.data.docurl+ "\" target=_blank title=\"Documentation source\">*</a></sup></h3>" + d.data.docs;
+      $('#docs').html(html);
+      $('#docs-container').scrollTop(0);
+    }
+    else if (d.data.docurl) {
+      // this call is asynchronous for a better UX. Synchronous calls in jQuery have been deprecated
+      $.ajax({
+        url : d.data.docurl,
+        dataType: "text",
+        success : function (data) {
+          var converter = new showdown.Converter({ openLinksInNewWindow: true });
+          var mdhtml = converter.makeHtml(data);
+          d.data.docs = mdhtml; // save a cached version of the rendered HTML to save processing time.
+          html += "<h3>Documentation<sup><a href=\"" +d.data.docurl+ "\" target=_blank title=\"Documentation source\">*</a></sup></h3>" + mdhtml;
+          $('#docs').html(html);
+          $('#docs-container').scrollTop(0);
+        },
+        error: function(xhr, textStatus, errorThrown){
+          html += "<div class=\"alert alert-danger\">Failed to load the necessary documentation resource: <code>"+d.data.docurl+"</code></div>";
+          $('#docs').html(html);
+          $('#docs-container').scrollTop(0);
+        }
+      });
+    }
+  }
+
+  function highlightObject(obj) {
+    if (obj) {
+      if (obj !== highlighted) {
+        var parents = obj.ancestors();
+        var children = obj.descendants();
+        graph.node.classed('inactive', function(d) {
+          if (d === obj) return false;
+          if (parents.indexOf(d) >= 0) return false;
+          if (children.indexOf(d) >= 0) return false;
+          return true;
+        });
+        graph.line.classed('inactive', function(d) {
+          if (d === obj) return false;
+          if (parents.indexOf(d) >= 0) return false;
+          if (children.indexOf(d) >= 0) return false;
+          return true;
+        });
+      }
+      highlighted = obj;
+    } else {
+      if (highlighted) {
+        graph.node.classed('inactive', false);
+        graph.line.classed('inactive', false);
+      }
+      highlighted = null;
+    }
+  }
+}
+</script>
+</body>
+

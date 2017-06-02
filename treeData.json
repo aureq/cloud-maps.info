@@ -1,0 +1,823 @@
+{
+	"name": "AWS Security",
+	"color": "AWS",
+	"docurl": "data/security.md",
+	"children": [
+		{
+			"name": "Compliance",
+			"color": "BuGn",
+			"docurl": "data/compliance/compliance.md",
+			"children": [
+				{
+					"name": "Assurance Programs",
+					"color": "BuGn",
+					"docurl": "data/compliance/assurance-programs.md",
+					"children": [
+						{
+							"name": "Certifications / Attestations",
+							"color": "BuGn",
+							"docurl": "data/compliance/assurance-programs.md",
+							"children": [
+								{
+									"name": "Global",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "ISO 9001",
+											"color": "BuGn",
+											"docurl": "data/compliance/iso-9001.md"
+										},
+										{
+											"name": "ISO 27001",
+											"color": "BuGn",
+											"docurl": "data/compliance/iso-27001.md"
+										},
+										{
+											"name": "ISO 27017",
+											"color": "BuGn",
+											"docurl": "data/compliance/iso-27017.md"
+										},
+										{
+											"name": "ISO 27018",
+											"color": "BuGn",
+											"docurl": "data/compliance/iso-27018.md"
+										},
+										{
+											"name": "PCI DSS Level 1",
+											"color": "BuGn",
+											"docurl": "data/compliance/pci-dss-level-1.md"
+										},
+										{
+											"name": "SOC 1",
+											"color": "BuGn",
+											"docurl": "data/compliance/soc.md"
+										},
+										{
+											"name": "SOC 2",
+											"color": "BuGn",
+											"docurl": "data/compliance/soc.md"
+										},
+										{
+											"name": "SOC 3",
+											"color": "BuGn",
+											"docurl": "data/compliance/soc.md"
+										}
+									]
+								},
+								{
+									"name": "United States",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "DoD SRG",
+											"color": "BuGn"
+										},
+										{
+											"name": "FedRAMP",
+											"color": "BuGn"
+										},
+										{
+											"name": "FIPS",
+											"color": "BuGn"
+										},
+										{
+											"name": "SEC Rule 17-a-4(f)",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Asia Pacific",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "IRAP (Australia)",
+											"color": "BuGn"
+										},
+										{
+											"name": "MLPS LEvel 3 (China)",
+											"color": "BuGn"
+										},
+										{
+											"name": "MTCS (Singapore)",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Europe",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "C5 (Germany)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Cyber Essentials (UK)",
+											"color": "BuGn"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Laws, Regulations, and Privacy",
+							"color": "BuGn",
+							"children": [
+								{
+									"name": "United States",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "FERPA",
+											"color": "BuGn"
+										},
+										{
+											"name": "Gramm-Leach-Bliley Act (GLBA)",
+											"color": "BuGn"
+										},
+										{
+											"name": "U.S. Health Insurance Portability and Accountability Act (HIPAA)",
+											"color": "BuGn"
+										},
+										{
+											"name": " Health Information Technology for Economic and Clinical Health Act (HITECH)",
+											"color": "BuGn"
+										},
+										{
+											"name": "IRS 1075",
+											"color": "BuGn"
+										},
+										{
+											"name": "International Traffic in Arms Regulations (ITAR)",
+											"color": "BuGn"
+										},
+										{
+											"name": "VPAT / Section 508",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Canada",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "PIPEDA",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Asia Pacific",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "My Number Act (Japan)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Privacy Act (Australia)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Privacy Act (New Zealand)",
+											"color": "BuGn"
+										},
+										{
+											"name": "PDPA - 2010 (Malaysia)",
+											"color": "BuGn"
+										},
+										{
+											"name": "PDPA - 2012 (Singapore)",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Europe",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Cloud Infrastructure Services Providers in Europe (CISPE)",
+											"color": "BuGn"
+										},
+										{
+											"name": "EU Model Clauses",
+											"color": "BuGn"
+										},
+										{
+											"name": "U.K. DPA - 1988",
+											"color": "BuGn"
+										},
+										{
+											"name": "EU Data Protection Directive",
+											"color": "BuGn"
+										},
+										{
+											"name": "Spanish DPA Authorization",
+											"color": "BuGn"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Alignments / Frameworks",
+							"color": "BuGn",
+							"children": [
+								{
+									"name": "Global",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Center for Internet Security (CIS)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Cloud Security Alliance (CSA)",
+											"color": "BuGn"
+										},
+										{
+											"name": "International Computer Room Experts Association",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "United States",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Criminal Justice Information Services (CJIS)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Federal Information Security Management Act (FISMA)",
+											"color": "BuGn"
+										},
+										{
+											"name": "GxP Cloud (FDA CFR 21 Part 11)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Medicaid Information Technology Architecture (MITA) 3.0",
+											"color": "BuGn"
+										},
+										{
+											"name": "Motion Picture Association of America (MPAA)",
+											"color": "BuGn"
+										},
+										{
+											"name": "National Institute of Standards and Technology (NIST) 800-53",
+											"color": "BuGn"
+										},
+										{
+											"name": "Personal Health Record (PHR)",
+											"color": "BuGn"
+										},
+										{
+											"name": "Uptime Institute Tiers",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Asia Pacific",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Center for Financial Industry Information Systems (Japan)",
+											"color": "BuGn"
+										}
+									]
+								},
+								{
+									"name": "Europe",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Esquema Nacional de Seguridad (Spain)",
+											"color": "BuGn"
+										},
+										{
+											"name": "EU-US Privacy Shield",
+											"color": "BuGn"
+										},
+										{
+											"name": "G-Cloud (UK)",
+											"color": "BuGn"
+										},
+										{
+											"name": "IT Grundschutz (Germany)",
+											"color": "BuGn"
+										},
+										{
+											"name": "UK Cloud Security Principles",
+											"color": "BuGn"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Governance",
+			"color": "Oranges",
+			"children": [
+				{
+					"name": "CloudTrail",
+					"color": "Oranges"
+				},
+				{
+					"name": "Config",
+					"color": "Oranges"
+				},
+				{
+					"name": "VPC Flow Logs",
+					"color": "Oranges"
+				},
+				{
+					"name": "Trusted Advisor",
+					"color": "Oranges"
+				}
+			]
+		},
+		{
+			"name": "Administrative",
+			"color": "Purples",
+			"children": [
+				{
+					"name": "Account Structure",
+					"color": "Purples",
+					"children": [
+						{
+							"name": "Account",
+							"color": "Purples",
+							"children": [
+								{
+									"name": "Root User",
+									"color": "Purples",
+									"children": [
+										{
+											"name": "Multi-Factor Authentication (MFA)",
+											"color": "Purples"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Organization",
+							"color": "Purples",
+							"children": [
+								{
+									"name": "Service Control Policy (SCP)",
+									"color": "Purples"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Network",
+			"color": "Blues",
+			"children": [
+				{
+					"name": "Service Specific",
+					"color": "Blues",
+					"children": [
+						{
+							"name": "API Gateway",
+							"color": "Blues",
+							"children": [
+								{
+									"name": "Custom Authorizer",
+									"color": "Blues"
+								}
+							]
+						},
+						{
+							"name": "AWS Direct Connect",
+							"color": "Blues",
+							"children": [
+								{
+									"name": "Private Virtual Interface",
+									"color": "Blues"
+								}
+							]
+						},
+						{
+							"name": "Amazon Route53",
+							"color": "Blues",
+							"children": [
+								{
+									"name": " Domain Name System Security Extensions (DNSSEC)",
+									"color": "Blues"
+								},
+								{
+									"name": "Private Hosted Zone",
+									"color": "Blues"
+								}
+							]
+						},
+						{
+							"name": "AWS Shield",
+							"color": "Blues"
+						},
+						{
+							"name": "Web Application Firewall (WAF)",
+							"color": "Blues",
+							"children": [
+								{
+									"name": "Web ACL",
+									"color": "Blues"
+								}
+							]
+						},
+						{
+							"name": "Cloudfront",
+							"color": "Blues",
+							"children": [
+								{
+									"name": "Cloudfront Geo Restriction",
+									"color": "Blues"
+								}
+							]
+						},
+						{
+							"name": "Virtual Private Cloud (VPC)",
+							"color": "Blues",
+							"children": [
+								{
+									"name": "Network ACL (NACL)",
+									"color": "Blues"
+								},
+								{
+									"name": "Security Group",
+									"color": "Blues"
+								},
+								{
+									"name": "Route Table",
+									"color": "Blues"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Encryption",
+			"color": "Reds",
+			"children": [
+				{
+					"name": "CloudHSM",
+					"color": "Reds"
+				},
+				{
+					"name": "At Rest",
+					"color": "Reds",
+					"children": [
+						{
+							"name": "Key Management Service (KMS)",
+							"color": "Reds"
+						},
+						{
+							"name": "Server Side Encryption (SSE)",
+							"color": "Reds"
+						},
+						{
+							"name": "Client Side Encryption",
+							"color": "Reds"
+						}
+					]
+				},
+				{
+					"name": "In Transit",
+					"color": "Reds",
+					"children": [
+						{
+							"name": "VPN Gateway",
+							"color": "Reds"
+						},
+						{
+							"name": "TLS/SSL",
+							"color": "Reds",
+							"children": [
+								{
+									"name": "API Gateway",
+									"color": "Reds"
+								},
+								{
+									"name": "Amazon Certificate Manager (ACM)",
+									"color": "Reds"
+								},
+								{
+									"name": "Application Load Balancer (ALB)",
+									"color": "Reds",
+									"children": [
+										{
+											"name": "SSL Certificate",
+											"color": "Reds"
+										},
+										{
+											"name": "Security Policy",
+											"color": "Reds"
+										}
+									]
+								},
+								{
+									"name": "Elastic Load Balancer (ELB)",
+									"color": "Reds",
+									"children": [
+										{
+											"name": "SSL Certificate",
+											"color": "Reds"
+										},
+										{
+											"name": "Security Policy",
+											"color": "Reds"
+										}
+									]
+								},
+								{
+									"name": "Cloudfront",
+									"color": "Reds",
+									"children": [
+										{
+											"name": "SSL Certificate",
+											"color": "Reds"
+										}
+									]
+									
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "AWS API",
+			"color": "Greens",
+			"children": [
+				{
+					"name": "Authentication",
+					"color": "Greens",
+					"children": [
+						{
+							"name": "SAML Provider",
+							"color": "Greens",
+							"children": [
+								{
+									"name": "Active Directory Federation Services (ADFS)",
+									"color": "Greens"
+								}
+							]
+						},
+						{
+							"name": "Service-Linked Role",
+							"color": "Greens"
+						},
+						{
+							"name": "User",
+							"color": "Greens",
+							"children": [
+								{
+									"name": "Access Key",
+									"color": "Greens"
+								},
+								{
+									"name": "Login Profile",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Password Policy",
+											"color": "Greens"
+										},
+										{
+											"name": "Multi-Factor Authentication",
+											"color": "Greens"
+										},
+										{
+											"name": "Password",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Groups",
+									"color": "Greens"
+								}
+							]
+						},
+						{
+							"name": "Service Specific",
+							"color": "Greens",
+							"children": [
+								{
+									"name": "Security Token Service (STS)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Assumed Role",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Cognito",
+									"color": "Greens"
+								},
+								{
+									"name": "EC2",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "EC2 Key Pair",
+											"color": "Greens"
+										},
+										{
+											"name": "Instance Role",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Internet of Things (IoT)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Device Certificate",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Simple Email Service (SES)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Sending Authorization",
+											"color": "Greens"
+										},
+										{
+											"name": "DomainKeys Identified Mail (DKIM)",
+											"color": "Greens"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Authorization",
+					"color": "Greens",
+					"children": [
+						{
+							"name": "Policy",
+							"color": "Greens",
+							"children": [
+								{
+									"name": "Inline",
+									"color": "Greens"
+								},
+								{
+									"name": "Managed",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "AWS Managed",
+											"color": "Greens"
+										},
+										{
+											"name": "Customer Managed",
+											"color": "Greens"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Service Specific",
+							"color": "Greens",
+							"children": [
+								{
+									"name": "Key Management Service (KMS)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Grant",
+											"color": "Greens"
+										},
+										{
+											"name": "Key Policy",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Simple Storage Service (S3)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Object ACL",
+											"color": "Greens"
+										},
+										{
+											"name": "Bucket ACL",
+											"color": "Greens"
+										},
+										{
+											"name": "Bucket Policy",
+											"color": "Greens"
+										},
+										{
+											"name": "Pre-signed URL",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Simple Queue Service (SQS)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Queue Policy",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "AWS Lambda",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Execution Role",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Internet of Things",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Policy",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Glacier",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Vault Lock Policy",
+											"color": "Greens"
+										},
+										{
+											"name": "Vault Access Policy",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Simple Notification Service (SNS)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Topic Policy",
+											"color": "Greens"
+										}
+									]
+								},
+								{
+									"name": "Simple Email Service (SES)",
+									"color": "Greens",
+									"children": [
+										{
+											"name": "Sending Authorization",
+											"color": "Greens"
+										},
+										{
+											"name": "Sender Policy Framework (SPF)",
+											"color": "Greens"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

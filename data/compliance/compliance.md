@@ -1,0 +1,1 @@
+Amazon Web Services Cloud Compliance enables customers to understand the robust controls in place at AWS to maintain security and data protection in the cloud. As systems are built on top of AWS cloud infrastructure, compliance responsibilities will be shared. [More information](https://aws.amazon.com/compliance/)
