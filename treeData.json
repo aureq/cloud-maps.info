@@ -335,18 +335,98 @@
 									"color": "BuGn"
 								},
 								{
+									"name": "Virtual Private Cloud (VPC)",
+									"color": "BuGn"
+								},
+								{
+									"name": "Elastic Block Store (EBS)",
+									"color": "BuGn"
+								},
+								{
+									"name": "Redshift",
+									"color": "BuGn"
+								},
+								{
+									"name": "Simple Storage Service (S3)",
+									"color": "BuGn"
+								},
+								{
+									"name": "S3 Transfer Acceleration",
+									"color": "BuGn"
+								},
+								{
+									"name": "Simple Queue Service (SQS)",
+									"color": "BuGn"
+								},
+								{
+									"name": "Glacier",
+									"color": "BuGn"
+								},
+								{
+									"name": "Glacier",
+									"color": "BuGn"
+								},
+								{
+									"name": "Database Migration Service (DMS)",
+									"color": "BuGn"
+								},
+								{
 									"name": "RDS",
 									"color": "BuGn",
 									"children": [
 										{
-											"name": "Aurora",
+											"name": "RDS for MySQL",
 											"color": "BuGn"
 										},
 										{
-											"name": "Postgresql",
+											"name": "RDS for Oracle",
+											"color": "BuGn"
+										},
+										{
+											"name": "RDS for PostgreSQL",
+											"color": "BuGn"
+										},
+										{
+											"name": "Aurora",
 											"color": "BuGn"
 										}
 									]
+								},
+								{
+									"name": "Cloudfront",
+									"color": "BuGn"
+								},
+								{
+									"name": "Elastic Load Balancer (ELB)",
+									"color": "BuGn"
+								},
+								{
+									"name": "Elastic Map Reduce (EMR)",
+									"color": "BuGn"
+								},
+								{
+									"name": "DynamoDB",
+									"color": "BuGn"
+								},
+								{
+									"name": "API Gateway",
+									"color": "BuGn"
+								},
+								{
+									"name": "Key Management Service (KMS)",
+									"color": "BuGn"
+								},
+								{
+									"name": "Shield",
+									"color": "BuGn"
+								},
+								{
+									"name": "Snowball",
+									"color": "BuGn"
+								},
+								{
+									"name": "Web Application Firewall (WAF)",
+									"color": "BuGn"
 								}
 							]
 						}
