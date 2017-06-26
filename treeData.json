@@ -321,6 +321,36 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Covered Services",
+					"color": "BuGn",
+					"children": [
+						{
+							"name": "U.S. Health Insurance Portability and Accountability Act (HIPAA)",
+							"color": "BuGn",
+							"children": [
+								{
+									"name": "EC2",
+									"color": "BuGn"
+								},
+								{
+									"name": "RDS",
+									"color": "BuGn",
+									"children": [
+										{
+											"name": "Aurora",
+											"color": "BuGn",
+										},
+										{
+											"name": "Postgresql",
+											"color": "BuGn",
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			]
 		},
