@@ -340,11 +340,11 @@
 									"children": [
 										{
 											"name": "Aurora",
-											"color": "BuGn",
+											"color": "BuGn"
 										},
 										{
 											"name": "Postgresql",
-											"color": "BuGn",
+											"color": "BuGn"
 										}
 									]
 								}
