@@ -342,7 +342,7 @@ $(function() {
 });
 
 // Assigns parent, children, height, depth
-d3.json("treeData.json", function(error, treeData) {
+d3.json("data/aws-security-primer/treeData.json", function(error, treeData) {
   root = d3.hierarchy(treeData, function(d) { return d.children; });
   root.x0 = height / 2;
   root.y0 = 0;
